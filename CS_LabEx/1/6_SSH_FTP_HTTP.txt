@@ -1,0 +1,53 @@
+---
+
+## 🌐 HTTP (what you already know)
+- **What it is**: The protocol used for websites (your browser talking to a server).
+- **Where you use it**: Logging into web apps, forms, DVWA in your lab.
+- **Why Hydra uses it**: To test login forms on websites.
+
+---
+
+## 📂 FTP (File Transfer Protocol)
+- **What it is**: A protocol for moving files between computers.
+- **Where you use it**: Uploading/downloading files to a server (like hosting a website).
+- **Example**: A company’s web server might allow admins to log in via FTP to upload new site files.
+- **Hydra use**: Test login credentials for FTP servers.
+  ```bash
+  hydra -l admin -P passwords.txt ftp://192.168.1.10
+  ```
+  → Hydra tries logging into the FTP service at that IP with your password list.
+
+---
+
+## 🔑 SSH (Secure Shell)
+- **What it is**: A secure way to remotely log into another computer’s terminal.
+- **Where you use it**: Developers, sysadmins, or cloud engineers use SSH to connect to servers and run commands.
+- **Example**: You connect to your cloud server with:
+  ```bash
+  ssh user@server-ip
+  ```
+- **Hydra use**: Test login credentials for SSH servers.
+  ```bash
+  hydra -l root -P passwords.txt ssh://192.168.1.20
+  ```
+  → Hydra tries logging into the SSH service at that IP.
+
+---
+
+## 🧩 Analogy
+Think of them like different **doors into a house**:
+- **HTTP** → the front door (websites).  
+- **FTP** → the side door (file uploads/downloads).  
+- **SSH** → the back door (direct control of the house).  
+
+Hydra is like a tool that tests keys on each door. You just tell it which door (protocol) you want to attack.
+
+---
+
+## 📌 Key Takeaway
+- **HTTP** → websites.  
+- **FTP** → file transfer.  
+- **SSH** → remote server control.  
+Hydra works with all of them, but in your LabEx practice, you’ll mostly use **HTTP** since you’re learning web login attacks first.
+
+---

@@ -1,0 +1,90 @@
+---
+
+## 📖 RTFM – *Read the Friendly Manual*
+- **`man xyz`** → Opens the manual page for the command `xyz`.  
+- **`man git` vs `man git-xyz`** →  
+  - `man git` shows the general Git manual.  
+  - `man git-commit`, `man git-push`, etc. show manuals for specific Git subcommands.  
+- **Convention**:  
+  - `man [section] keyword` → Section numbers (1–8) categorize manuals (commands, system calls, configs, etc.).  
+  - Example: `man 1 ls` (user command), `man 2 open` (system call).  
+
+---
+
+## ⌨️ Navigation Inside `man` Pages
+When you open a manual page, you’re inside a pager (usually `less`). These are the key bindings:
+
+| Key | Action |
+|-----|--------|
+| `j` / `k` | Scroll down / up one line |
+| `J` / `K` | Scroll down / up half a page |
+| `n` / `N` | Jump to next / previous search result |
+| `/keyword` | Search forward for “keyword” |
+| `?keyword` | Search backward for “keyword” |
+| `h` | Help screen |
+| `q` | Quit |
+
+👉 Example: Inside `man git`, type `/commit` to jump to the section about commits. Use `n` to move to the next occurrence.
+
+---
+
+## 🛠️ Alternative to `man`
+Sometimes commands don’t have man pages, or you want quick help:
+
+- **`command --help`** → Shows usage and options.  
+  Example:  
+  ```bash
+  id --help
+  ```
+  gives a summary of options for the `id` command.  
+- Short forms like `-h` often work too:  
+  ```bash
+  id -h
+  ```
+
+---
+
+## 🌐 Online Documentation
+- Git has excellent official docs: [https://git-scm.com/docs](https://git-scm.com/docs)  
+- Convention:  
+  - `git help xyz` → Equivalent to `man git-xyz`.  
+  - Example:  
+    ```bash
+    git help commit
+    ```
+    opens the manual for `git commit`.
+
+---
+
+## 🧩 Putting It All Together
+1. **General command help** → `man xyz` or `xyz --help`.  
+2. **Git-specific help** → `man git-xyz` or `git help xyz`.  
+3. **Navigation inside manuals** → `j/k` for lines, `J/K` for half-pages, `/` and `?` for search, `n/N` to cycle results.  
+4. **Fallback** → Online docs (git-scm.com, GNU manuals, etc.).  
+
+---
+
+## 🎯 Example Workflow
+Let’s say you want to learn about Git commits:
+```bash
+man git-commit
+```
+- Scroll with `j/k`.  
+- Search for `/amend` to find the section about amending commits.  
+- Use `n` to jump through all mentions of “amend.”  
+- Quit with `q`.  
+
+If you just need a quick reminder:
+```bash
+git commit --help
+```
+
+---
+
+This way, you have a **layered approach**:  
+- **Quick help** → `--help`  
+- **Detailed local docs** → `man`  
+- **Deep dive online** → official docs  
+
+---
+

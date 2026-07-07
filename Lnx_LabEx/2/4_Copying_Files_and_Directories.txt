@@ -1,0 +1,62 @@
+---
+
+### 📄 Copying a File
+```bash
+cp file1.txt file1_copy.txt
+```
+- **Command:** `cp` means *copy*.
+- **Source:** `file1.txt` is the file you want to duplicate.
+- **Destination:** `file1_copy.txt` is the new file created in the same directory.
+- **Result:** You now have two separate files. Any changes made to `file1_copy.txt` won’t affect `file1.txt`.
+
+---
+
+### 📂 Verifying the Copy
+```bash
+ls
+```
+- **Command:** `ls` lists all files and directories in the current location.
+- **Result:** You should see both `file1.txt` and `file1_copy.txt` in the output, confirming the copy worked.
+
+---
+
+### 📄➡️📂 Copying a File into a Directory
+```bash
+cp file2.txt testdir/
+```
+- **Source:** `file2.txt` is the file you want to copy.
+- **Destination:** `testdir/` is the directory where the copy will be placed.
+- **Result:** Inside `testdir`, you’ll now find a copy of `file2.txt`. The original `file2.txt` remains in the current directory.
+
+---
+
+### 📁 Copying a Directory
+```bash
+cp -r testdir testdir_copy
+```
+- **Command:** `cp -r` → the `-r` flag means *recursive*, which tells the system to copy everything inside the directory (files, subdirectories, etc.).
+- **Source:** `testdir` is the directory you want to duplicate.
+- **Destination:** `testdir_copy` is the new directory created.
+- **Result:** You now have a complete duplicate of `testdir`, including all its contents.
+
+---
+
+### 📂 Verifying Directory Copies
+```bash
+ls
+ls testdir
+ls testdir_copy
+```
+- **`ls`** → Shows all files and directories in the current location. You should see `testdir` and `testdir_copy`.
+- **`ls testdir`** → Lists contents inside the original directory.
+- **`ls testdir_copy`** → Lists contents inside the copied directory. Both should match, proving the recursive copy worked.
+
+---
+
+✅ **Summary:**  
+- `cp file1.txt file1_copy.txt` → Copy a file with a new name.  
+- `cp file2.txt testdir/` → Copy a file into a directory.  
+- `cp -r testdir testdir_copy` → Copy an entire directory with all its contents.  
+- `ls` → Verify what’s inside your directories after copying.
+
+---

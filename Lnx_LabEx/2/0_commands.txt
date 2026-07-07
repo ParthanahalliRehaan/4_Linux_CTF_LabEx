@@ -1,0 +1,139 @@
+labex:project/ $ pwd
+/home/labex/project
+
+labex:project/ $ echo ~
+/home/labex
+
+labex:project/ $ ls
+
+labex:project/ $ ls ~
+Code  Desktop  golang  project
+
+labex:project/ $ cd ..
+labex:~/ $ cd project
+
+labex:project/ $ cd ~
+
+labex:~/ $ cd /home/labex/project
+
+labex:project/ $ touch file1.txt
+
+labex:project/ $ echo "Hello. Linux" > file2.txt
+
+labex:project/ $ echo "Hidden file" > .hiddenfile
+
+labex:project/ $ mkdir testdir
+
+labex:project/ $ ls
+file1.txt  file2.txt  testdir
+labex:project/ $ ls -l
+
+total 4
+-rw-rw-r-- 1 labex labex  0 May 24 12:51 file1.txt
+-rw-rw-r-- 1 labex labex 13 May 24 12:52 file2.txt
+drwxrwxr-x 2 labex labex  6 May 24 12:53 testdir
+
+labex:project/ $ ls -a
+.  ..  file1.txt  file2.txt  .hiddenfile  testdir
+
+labex:project/ $ ls -la
+total 12
+drwxr-xr-x 1 labex labex   74 May 24 12:53 .
+drwxr-x--- 1 labex labex 4096 May 24 12:53 ..
+-rw-rw-r-- 1 labex labex    0 May 24 12:51 file1.txt
+-rw-rw-r-- 1 labex labex   13 May 24 12:52 file2.txt
+-rw-rw-r-- 1 labex labex   12 May 24 12:52 .hiddenfile
+drwxrwxr-x 2 labex labex    6 May 24 12:53 testdir
+
+labex:project/ $ ls -l testdir
+total 0
+
+labex:project/ $ cp file1.txt file1_copy.txt
+
+labex:project/ $ ls
+
+file1_copy.txt  file1.txt  file2.txt  testdir
+
+labex:project/ $ cp file2.txt testdir/
+
+labex:project/ $ cp -r testdir testdir_copy
+
+labex:project/ $ ls
+file1_copy.txt  file1.txt  file2.txt  testdir  testdir_copy
+
+labex:project/ $ ls testdir
+file2.txt
+
+labex:project/ $ ls testdir_copy
+file2.txt
+
+labex:project/ $ mv file1.txt newname.txt
+
+labex:project/ $ mv newname.txt testdir/
+
+labex:project/ $ mv testdir_copy new_transfer
+
+labex:project/ $ mv testdir/newname.txt ./original_file1.txt
+
+labex:project/ $ ls
+file1_copy.txt  file2.txt  new_transfer  original_file1.txt  testdir
+
+labex:project/ $ ls testdir
+file2.txt
+
+labex:project/ $ mv new_transfer new_testdir
+
+labex:project/ $ pwd
+/home/labex/project
+
+labex:project/ $ ls -a
+.   file1_copy.txt  .hiddenfile  original_file1.txt
+..  file2.txt       new_testdir  testdir
+
+labex:project/ $ rm original_file1.txt
+
+labex:project/ $ ls
+file1_copy.txt  file2.txt  new_testdir  testdir
+
+labex:project/ $ rm -i file2.txt
+rm: remove regular file 'file2.txt'? y
+
+labex:project/ $ ls
+file1_copy.txt  new_testdir  testdir
+
+labex:project/ $ ls new_testdir
+file2.txt
+
+labex:project/ $ rmdir new_testdir
+rmdir: failed to remove 'new_testdir': Directory not empty
+
+labex:project/ $ ls
+file1_copy.txt  new_testdir  testdir
+
+labex:project/ $ ls
+file1_copy.txt  new_testdir  testdir
+
+labex:project/ $ rmdir testdir
+rmdir: failed to remove 'testdir': Directory not empty
+
+labex:project/ $ rm -r testdir
+
+labex:project/ $ ls
+file1_copy.txt  new_testdir
+
+labex:project/ $ rm .hiddenfile
+labex:project/ $ ls -a
+.  ..  file1_copy.txt  new_testdir
+
+labex:project/ $ mkdir temp_dir
+
+labex:project/ $ touch temp_dir/temp_file.txt
+
+labex:project/ $ ls -R temp_dir
+temp_dir:
+temp_file.txt
+
+labex:project/ $ rm -rf temp_dir
+
+labex:project/ $ ls
+file1_copy.txt  new_testdir

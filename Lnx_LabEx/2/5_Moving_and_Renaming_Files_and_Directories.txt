@@ -1,0 +1,123 @@
+---
+
+## 🔹 1. Rename a File
+```bash
+mv file1.txt newname.txt
+```
+- **Action:**  
+  - `mv` takes `file1.txt` (the source) and renames it to `newname.txt` (the destination).  
+  - Since both are in the same directory, no movement occurs — only the name changes.  
+
+- **Before:**
+```
+current_directory/
+ ├── file1.txt
+ └── testdir/
+```
+
+- **After:**
+```
+current_directory/
+ ├── newname.txt
+ └── testdir/
+```
+
+---
+
+## 🔹 2. Move a File to a Directory
+```bash
+mv newname.txt testdir/
+```
+- **Action:**  
+  - Moves `newname.txt` into the folder `testdir`.  
+  - The trailing `/` indicates that the destination is a directory.  
+
+- **Before:**
+```
+current_directory/
+ ├── newname.txt
+ └── testdir/
+```
+
+- **After:**
+```
+current_directory/
+ └── testdir/
+      └── newname.txt
+```
+
+---
+
+## 🔹 3. Rename a Directory
+```bash
+mv testdir_copy new_testdir
+```
+- **Action:**  
+  - Renames the directory `testdir_copy` to `new_testdir`.  
+  - All contents inside remain unchanged.  
+
+- **Before:**
+```
+current_directory/
+ ├── testdir/
+ └── testdir_copy/
+```
+
+- **After:**
+```
+current_directory/
+ ├── testdir/
+ └── new_testdir/
+```
+
+---
+
+## 🔹 4. Move and Rename in One Command
+```bash
+mv testdir/newname.txt ./original_file1.txt
+```
+- **Action:**  
+  - Takes `newname.txt` from inside `testdir`.  
+  - Moves it into the current directory (`./`).  
+  - While moving, renames it to `original_file1.txt`.  
+
+- **Before:**
+```
+current_directory/
+ ├── testdir/
+ │    └── newname.txt
+```
+
+- **After:**
+```
+current_directory/
+ ├── original_file1.txt
+ └── testdir/
+```
+
+---
+
+## 🔹 5. Verify Changes
+```bash
+ls
+```
+- **Action:**  
+  - Lists all files and directories in the current directory.  
+  - You should now see `original_file1.txt` here.  
+
+```bash
+ls testdir
+```
+- **Action:**  
+  - Lists all contents inside `testdir`.  
+  - Since `newname.txt` was moved out, this directory may now be empty (unless it had other files).  
+
+---
+
+## ✅ Key Concepts
+- **Rename:** If the destination is a new filename, `mv` acts like a rename.  
+- **Move:** If the destination is a directory, `mv` moves the file inside.  
+- **Move + Rename:** You can change both location and name in one command.  
+- **Verify:** Always use `ls` to confirm changes.  
+
+---

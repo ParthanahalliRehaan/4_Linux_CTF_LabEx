@@ -1,0 +1,97 @@
+---
+
+### 📂 Navigating to the directory
+```bash
+cd /home/labex/project
+```
+- **cd** = “change directory.”  
+- This moves your shell’s working location to `/home/labex/project`.  
+- Every command you run afterward will operate relative to this directory unless you specify a full path.
+
+---
+
+### 📄 Creating files
+```bash
+touch file1.txt
+```
+- **touch** creates an empty file if it doesn’t exist.  
+- If `file1.txt` already exists, it simply updates the file’s *last modified timestamp*.  
+- Useful for quickly creating placeholder files.
+
+```bash
+echo "Hello, Linux" > file2.txt
+```
+- **echo** prints text to the terminal.  
+- The `>` operator redirects that output into a file.  
+- If `file2.txt` doesn’t exist, it’s created. If it does, its contents are overwritten.  
+- After running this, `file2.txt` contains the text:  
+  ```
+  Hello, Linux
+  ```
+
+```bash
+echo "Hidden file" > .hiddenfile
+```
+- Same principle as above, but the filename starts with a dot (`.`).  
+- In Linux, files beginning with `.` are **hidden** by default.  
+- You won’t see `.hiddenfile` in a normal `ls` listing unless you use special options.
+
+---
+
+### 📁 Creating a directory
+```bash
+mkdir testdir
+```
+- **mkdir** = “make directory.”  
+- Creates a new folder named `testdir` inside `/home/labex/project`.  
+- Directories are containers for files and other directories.
+
+---
+
+### 📋 Listing contents
+```bash
+ls
+```
+- Shows the names of files and directories in the current folder.  
+- You’ll see `file1.txt`, `file2.txt`, and `testdir`.  
+- `.hiddenfile` won’t appear because it’s hidden.
+
+```bash
+ls -l
+```
+- The `-l` option = “long format.”  
+- Displays details like:
+  - **Permissions** (`-rw-r--r--`)
+  - **Owner** and **group**
+  - **File size**
+  - **Last modified date/time**
+  - **Filename**
+
+```bash
+ls -a
+```
+- The `-a` option = “all.”  
+- Shows *all* files, including hidden ones (those starting with `.`).  
+- You’ll now see `.hiddenfile` along with `.` (current directory) and `..` (parent directory).
+
+```bash
+ls -la
+```
+- Combines both options: long format + all files.  
+- Gives a detailed view of everything, hidden or not.
+
+```bash
+ls -l testdir
+```
+- Lists the contents of `testdir` specifically.  
+- Since you just created it, it should be empty (except for `.` and `..`).
+
+---
+
+### 🧩 Why this matters
+- **touch** and **echo** show two different ways to create files: empty vs. with content.  
+- **mkdir** shows how to organize files into directories.  
+- **ls** with different options teaches you how to inspect what’s inside your filesystem.  
+- Together, these are the *building blocks* of Linux file management.
+
+---

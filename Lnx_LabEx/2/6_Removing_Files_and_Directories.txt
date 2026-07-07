@@ -1,0 +1,167 @@
+---
+
+## 🏗 Step 1: Confirm Where You Are
+```bash
+pwd
+```
+- **Explanation:**  
+  - `pwd` = **print working directory**.  
+  - It shows your current location in the filesystem.  
+  - Here, it should display `/home/labex/project`.  
+
+```bash
+ls -a
+```
+- **Explanation:**  
+  - `ls` lists files and directories.  
+  - `-a` shows **all files**, including hidden ones (those starting with a dot `.`).  
+  - You’ll see files like `original_file1.txt`, `.hiddenfile`, `file2.txt`, and directories like `testdir`, `new_testdir`.  
+
+---
+
+## 🗑 Step 2: Remove a Single File
+```bash
+rm original_file1.txt
+```
+- **Explanation:**  
+  - `rm` = **remove**.  
+  - Deletes the file permanently (no recycle bin).  
+  - After running, `original_file1.txt` is gone.  
+
+```bash
+ls
+```
+- **Explanation:**  
+  - Lists current directory contents again.  
+  - Confirms that `original_file1.txt` has disappeared.  
+
+---
+
+## 🛡 Step 3: Remove Interactively (Safer)
+```bash
+rm -i file2.txt
+```
+- **Explanation:**  
+  - `-i` = **interactive mode**.  
+  - Prompts: `rm: remove regular file 'file2.txt'?`  
+  - If you type `y`, it deletes. If you type `n`, it cancels.  
+- **Why useful:** Prevents accidental deletion.  
+
+```bash
+ls
+```
+- **Explanation:**  
+  - If you confirmed with `y`, `file2.txt` is gone.  
+  - If you typed `n`, it remains.  
+
+---
+
+## 📂 Step 4: Remove an Empty Directory
+```bash
+ls new_testdir
+```
+- **Explanation:**  
+  - Checks contents of `new_testdir`.  
+  - If nothing shows, it’s empty.  
+
+```bash
+rmdir new_testdir
+```
+- **Explanation:**  
+  - `rmdir` = remove directory.  
+  - Works **only if the directory is empty**.  
+  - If files exist inside, it fails.  
+
+```bash
+ls
+```
+- **Explanation:**  
+  - Confirms whether `new_testdir` was removed.  
+
+---
+
+## 🚫 Step 5: Attempt to Remove a Non-Empty Directory
+```bash
+ls testdir
+rmdir testdir
+```
+- **Explanation:**  
+  - `ls testdir` shows contents (e.g., `file2.txt`).  
+  - `rmdir testdir` fails with error:  
+    ```
+    rmdir: failed to remove 'testdir': Directory not empty
+    ```
+  - This is expected behavior.  
+
+---
+
+## 🔄 Step 6: Remove Directory Recursively
+```bash
+rm -r testdir
+```
+- **Explanation:**  
+  - `-r` = recursive.  
+  - Deletes the directory **and everything inside it**.  
+  - Use with caution — it doesn’t ask for confirmation unless combined with `-i`.  
+
+```bash
+ls
+```
+- **Explanation:**  
+  - Confirms `testdir` is gone.  
+
+---
+
+## ⚡ Step 7: Force Removal
+```bash
+rm .hiddenfile
+```
+- **Explanation:**  
+  - Removes hidden file `.hiddenfile`.  
+  - Hidden files are treated like normal files, just not shown by default.  
+
+```bash
+ls -a
+```
+- **Explanation:**  
+  - Confirms `.hiddenfile` is gone.  
+
+---
+
+## ☠️ Step 8: Danger Zone — `rm -rf`
+```bash
+mkdir temp_dir
+touch temp_dir/temp_file.txt
+ls -R temp_dir
+```
+- **Explanation:**  
+  - `mkdir` creates a directory.  
+  - `touch` creates an empty file inside.  
+  - `ls -R` lists contents recursively (shows subdirectories).  
+
+```bash
+rm -rf temp_dir
+```
+- **Explanation:**  
+  - `-r` = recursive (delete directory + contents).  
+  - `-f` = force (ignore warnings, delete even write-protected files).  
+  - Together: **delete everything inside without asking**.  
+  - Extremely dangerous if misused (e.g., `rm -rf /`).  
+
+```bash
+ls
+```
+- **Explanation:**  
+  - Confirms `temp_dir` is gone.  
+
+---
+
+## 🧠 Key Lessons
+- `rm file` → delete file.  
+- `rm -i file` → safer, asks before deleting.  
+- `rmdir dir` → delete empty directory only.  
+- `rm -r dir` → delete directory + contents.  
+- `rm -rf dir` → delete directory + contents, forcefully, no prompts.  
+- **No undo**: Once deleted, it’s gone. Always double-check paths.  
+
+---

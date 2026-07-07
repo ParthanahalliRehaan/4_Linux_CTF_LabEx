@@ -1,0 +1,75 @@
+---
+
+## 📂 Linux File System – Key Concepts
+
+### 🔑 Hierarchical File System
+- Linux organizes files in a **tree-like structure**:
+  - **Root directory (`/`)** → the trunk of the tree, the starting point of everything.
+  - **Subdirectories** → branches that grow out of the root (e.g., `/home`, `/etc`, `/usr`).
+  - **Files** → leaves attached to branches (documents, programs, configs).
+- This hierarchy ensures **organization and clarity**, making navigation predictable.
+
+---
+
+## 🏠 Home Directory
+- Each user has a personal workspace:
+  - Example: `/home/labex`
+  - Shortcut: `~` always points to your home directory.
+- Contains personal files, settings, and hidden configuration files (like `.bashrc`).
+
+---
+
+## 🧭 Current Working Directory (CWD)
+- The directory you’re *currently in*.
+- Use `pwd` to check your location.
+- Example: If you’re inside `/home/labex/project`, that’s your CWD.
+
+---
+
+## ⚙️ Essential Commands Cheat Sheet
+
+| Command        | Meaning | Example Output |
+|----------------|---------|----------------|
+| `pwd`          | Print current working directory | `/home/labex/project` |
+| `echo ~`       | Show path to home directory | `/home/labex` |
+| `ls`           | List contents of current directory | `file1.txt  project/` |
+| `ls ~`         | List contents of home directory | `Documents/ Downloads/` |
+| `cd ..`        | Move up one level (parent directory) | From `/home/labex/project` → `/home/labex` |
+| `cd project`   | Move into a subdirectory | From `/home/labex` → `/home/labex/project` |
+| `cd ~`         | Jump directly to home directory | `/home/labex` |
+| `cd /home/labex/project` | Navigate using absolute path | `/home/labex/project` |
+
+---
+
+## 📌 Relative vs Absolute Paths
+- **Absolute path**: Full address starting from root (`/`).  
+  Example: `/home/labex/project/file.txt`
+- **Relative path**: Address relative to your current location.  
+  Example: If you’re in `/home/labex`, then `project/file.txt` points to `/home/labex/project/file.txt`.
+
+---
+
+## 🌲 Visual Hierarchy Example
+```
+/
+├── home
+│   └── labex
+│       └── project
+├── etc
+├── usr
+└── bin
+```
+- `/` → root  
+- `/home/labex` → your home directory  
+- `/home/labex/project` → your project folder  
+
+---
+
+### 📝 Summary
+- Linux treats **everything as a file** (even devices and processes).  
+- The **hierarchical file system** is like a tree, with `/` as the root.  
+- Your **home directory (`~`)** is your personal space.  
+- The **current working directory** is where you are right now.  
+- Commands like `pwd`, `ls`, and `cd` help you **navigate and manage** this structure.  
+
+---

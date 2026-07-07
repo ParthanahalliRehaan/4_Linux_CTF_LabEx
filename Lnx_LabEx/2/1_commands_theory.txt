@@ -1,0 +1,62 @@
+---
+
+## 🧭 Navigation & Orientation Commands
+
+| Command | Meaning | Example Output | Notes |
+|---------|---------|----------------|-------|
+| `pwd` | Print Working Directory | `/home/labex/project` | Shows your current location in the filesystem. Think of it as your GPS. |
+| `echo ~` | Display Home Directory Path | `/home/labex` | `~` is shorthand for your home directory. |
+| `ls` | List contents of current directory | `file1.txt  project/` | By default hides hidden files (dotfiles). |
+| `ls ~` | List contents of home directory | `Documents/ Downloads/` | Lets you peek into your home without leaving your current directory. |
+| `ls -a` | List all files | Includes hidden files like `.bashrc` | Useful for seeing configuration files. |
+| `ls -l` | Long listing format | Shows permissions, owner, size, date | Great for detailed inspection. |
+| `ls -lh` | Human-readable sizes | `1.2K`, `3M`, etc. | Easier to interpret file sizes. |
+
+---
+
+## 📂 Moving Between Directories
+
+| Command | Meaning | Example | Notes |
+|---------|---------|---------|-------|
+| `cd ..` | Move up one level | From `/home/labex/project` → `/home/labex` | Parent directory navigation. |
+| `cd project` | Move into subdirectory | From `/home/labex` → `/home/labex/project` | Relative path navigation. |
+| `cd ~` | Go to home directory | `/home/labex` | Shortcut to your personal space. |
+| `cd /home/labex/project` | Navigate using absolute path | `/home/labex/project` | Always starts from root `/`. |
+
+---
+
+## 🌲 Key Concepts
+
+- **Hierarchical File System**:  
+  - Tree-like structure with `/` as the root (trunk).  
+  - Directories are branches, files are leaves.  
+  - Example: `/home/labex/project/file.txt`.
+
+- **Home Directory (`~`)**:  
+  - Your personal workspace.  
+  - Contains your files and hidden configuration files.  
+
+- **Current Working Directory (CWD)**:  
+  - Where you are right now.  
+  - Use `pwd` to check.  
+
+- **Relative vs Absolute Paths**:  
+  - **Relative**: Based on current location (`project/file.txt`).  
+  - **Absolute**: Full path from root (`/home/labex/project/file.txt`).  
+
+---
+
+## 📝 Quick Practice Flow
+```bash
+pwd            # See where you are
+ls             # List files here
+ls ~           # List files in home
+cd ..          # Move up one level
+cd project     # Move into project folder
+cd ~           # Jump back to home
+echo ~         # Show home directory path
+```
+
+---
+
+✅ This cheat sheet covers **all the commands we discussed**: `pwd`, `echo ~`, `ls`, `ls ~`, `ls -a`, `ls -l`, `ls -lh`, `cd ..`, `cd project`, `cd ~`, and `cd /home/labex/project`.  

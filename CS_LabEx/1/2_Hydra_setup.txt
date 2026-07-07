@@ -1,0 +1,66 @@
+---
+
+## 🖥️ Step 1: Install Hydra
+Hydra is available on Linux by default, but you can set it up on Windows too.
+
+- **On Linux (Ubuntu/Debian)**:
+```bash
+sudo apt update
+sudo apt install hydra
+```
+
+- **On macOS (Homebrew)**:
+```bash
+brew install hydra
+```
+
+- **On Windows**:
+Hydra isn’t natively packaged, so you usually:
+1. Install **WSL (Windows Subsystem for Linux)** and then run the Linux commands above.
+2. Or download Hydra source from GitHub: vanhauser-thc/thc-hydra [(github.com in Bing)](https://www.bing.com/search?q="https%3A%2F%2Fgithub.com%2Fvanhauser-thc%2Fthc-hydra") and compile it (requires Cygwin or WSL).
+
+---
+
+## 📂 Step 2: Prepare Your Password List
+Hydra needs a list of candidate passwords (your “dictionary”).  
+Example file `passwords.txt`:
+```
+admin
+password123
+letmein
+qwerty
+```
+
+---
+
+## ⚡ Step 3: Run Hydra Against a Test Service
+Hydra supports many protocols (SSH, FTP, HTTP, etc.).  
+For example, testing an HTTP login form in your lab:
+
+```bash
+hydra -l admin -P passwords.txt http-post-form "/login:username=^USER^&password=^PASS^:Invalid username or password"
+```
+
+- `-l admin` → username to test.  
+- `-P passwords.txt` → password list file.  
+- `http-post-form` → tells Hydra to attack a web login form.  
+- The string after it defines:
+  - `/login` → path to the login page.  
+  - `username=^USER^&password=^PASS^` → Hydra substitutes usernames and passwords here.  
+  - `Invalid username or password` → the failure message Hydra looks for.
+
+---
+
+## 🛡️ Step 4: Observe Results
+- Hydra will try each password in your list.  
+- If it finds a match, it reports success.  
+- If not, you’ll see failed attempts.  
+
+---
+
+## ⚠️ Important Notes
+- **Lab use only**: Hydra is for controlled environments like LabEx, DVWA, or your own test servers.  
+- **Never run on real systems**: Unauthorized use is illegal and unethical.  
+- **Learning goal**: The point is to understand how attackers automate brute-force/dictionary attacks, and why strong passwords + protections (lockouts, CAPTCHAs, MFA) are critical.
+
+---

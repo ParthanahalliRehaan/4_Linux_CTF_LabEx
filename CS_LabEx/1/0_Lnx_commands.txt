@@ -1,0 +1,98 @@
+---
+
+# 🔐 Hydra (Password Cracking Tool)
+**Purpose**: Automates brute-force/dictionary attacks against login services.
+
+### Options
+- **`-l USERNAME`** → single username.  
+  Example: `hydra -l admin ...`
+- **`-L FILE`** → file with multiple usernames.  
+  Example: `hydra -L usernames.txt ...`
+- **`-p PASSWORD`** → single password.  
+  Example: `hydra -p password123 ...`
+- **`-P FILE`** → file with multiple passwords.  
+  Example: `hydra -P passwords.txt ...`
+- **`-s PORT`** → specify port.  
+  Example: `hydra -s 8080 ...`
+- **`http-post-form`** → attack HTTP login forms.  
+  Example:  
+  ```
+  http-post-form "/login:username=^USER^&password=^PASS^:Invalid username or password"
+  ```
+- **`-o FILE`** → save results to file.  
+  Example: `hydra -o results.txt ...`
+- **Other protocols**: `ssh`, `ftp`, `http-get`, `smtp`, etc.  
+  Example: `hydra -l root -P pass.txt ssh://192.168.1.20`
+
+---
+
+# 📝 echo
+**Purpose**: Print text or write text into files.
+
+### Options
+- **`echo "text"`** → print text.  
+- **`echo -n "text"`** → no newline at end.  
+- **`echo -e "line1\nline2"`** → interpret escape sequences:
+  - `\n` → newline  
+  - `\t` → tab  
+  - `\\` → backslash  
+- **Redirect output**:
+  - `>` → overwrite file.  
+    ```bash
+    echo "hello" > file.txt
+    ```
+  - `>>` → append to file.  
+    ```bash
+    echo "world" >> file.txt
+    ```
+
+---
+
+# 📂 cat
+**Purpose**: Concatenate and display file contents.
+
+### Options
+- **`cat file.txt`** → show file contents.  
+- **`cat file1 file2`** → show multiple files sequentially.  
+- **`cat > file.txt`** → create file, type content, save with `CTRL+D`.  
+- **`cat >> file.txt`** → append typed content.  
+- **`cat -n file.txt`** → show line numbers.  
+- **`cat -b file.txt`** → show line numbers, skip blank lines.  
+- **`cat -s file.txt`** → squeeze multiple blank lines into one.  
+- **`cat -E file.txt`** → show `$` at line ends.  
+- **`cat -T file.txt`** → show `^I` for tabs.
+
+---
+
+# 📖 head
+**Purpose**: Show the beginning of files.
+
+### Options
+- **`head file.txt`** → first 10 lines (default).  
+- **`head -n 5 file.txt`** → first 5 lines.  
+- **`head -c 20 file.txt`** → first 20 characters.  
+- **`head -q file1 file2`** → suppress file name headers.  
+- **`head -v file.txt`** → always show file name header.
+
+---
+
+# 🧩 Examples in Practice
+```bash
+echo -e "user1\nuser2\nuser3" > usernames.txt
+cat -n usernames.txt
+head -n 2 usernames.txt
+hydra -L usernames.txt -P passwords.txt localhost -s 8080 http-post-form "/:username=^USER^&password=^PASS^:Invalid username or password" -o results.txt
+cat results.txt
+```
+
+---
+
+# 📌 Key Security Lessons
+- Hydra shows how **automation cracks weak passwords fast**.  
+- **Manual attempts** are slow; Hydra demonstrates why password policies matter.  
+- **Weak/common passwords** are easily broken.  
+- **Real attackers use huge dictionaries** (millions of passwords).  
+- Defenses: strong unique passwords, account lockouts, CAPTCHAs, MFA.
+
+---
+

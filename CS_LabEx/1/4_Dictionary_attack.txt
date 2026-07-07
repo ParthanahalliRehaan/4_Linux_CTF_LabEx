@@ -1,0 +1,55 @@
+---
+
+## 📖 What is a Dictionary Attack?
+- A **dictionary attack** is a type of password-cracking technique.  
+- Instead of trying every possible combination of characters (like brute-force), attackers use a **precompiled list of common or likely passwords** — called a *dictionary*.  
+- These dictionaries often include:
+  - Default passwords (e.g., *admin*, *1234*).  
+  - Common weak passwords (e.g., *password123*, *qwerty*, *letmein*).  
+  - Variations of words with numbers/symbols (e.g., *summer2024!*, *welcome@123*).  
+  - Leaked passwords from past breaches.
+
+---
+
+## ⚡ How It Differs from Brute-Force
+| **Brute-Force Attack** | **Dictionary Attack** |
+|-------------------------|------------------------|
+| Tries *every possible combination* of characters until success. | Tries *likely passwords* from a curated list. |
+| Very slow if password is long/complex. | Much faster because it skips unlikely guesses. |
+| Guaranteed to succeed eventually (if unlimited attempts allowed). | Success depends on whether the password is in the dictionary. |
+
+---
+
+## 🛠️ Why Attackers Use It
+- **Efficiency**: Most users pick predictable passwords, so attackers don’t need to test random strings.  
+- **Real-world data**: Dictionaries are often built from leaked password databases, making them highly effective.  
+- **Automation**: Tools can run through millions of dictionary entries in seconds.  
+
+---
+
+## 🔐 Defense Against Dictionary Attacks
+1. **Strong, unique passwords**  
+   - Use long phrases with mixed characters (letters, numbers, symbols).  
+   - Avoid common words or predictable patterns.  
+2. **Account protections**  
+   - Lockouts after repeated failures.  
+   - CAPTCHAs to block automated scripts.  
+   - Rate limiting to slow down attempts.  
+3. **Multi-factor authentication (MFA)**  
+   - Even if a password is guessed, attackers need a second factor (like a phone code).  
+4. **Password managers**  
+   - Generate and store complex, random passwords that aren’t in any dictionary.  
+
+---
+
+## 🧩 Analogy
+Imagine a thief trying to open a lock:
+- **Brute-force**: They try *every possible key shape* until one works.  
+- **Dictionary attack**: They bring a bag of *keys that people commonly use* — default keys, popular shapes, or ones stolen from other houses. It’s faster and more likely to succeed if the lock owner used a common key.
+
+---
+
+## 📌 Key Takeaway
+A dictionary attack is essentially a **smarter brute-force**: it leverages human predictability in password choices. That’s why cybersecurity emphasizes **complex, unique passwords** and **layered defenses** — because attackers almost always start with dictionary lists before moving to full brute-force.
+
+---

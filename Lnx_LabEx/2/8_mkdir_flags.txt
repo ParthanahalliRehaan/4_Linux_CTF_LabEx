@@ -1,0 +1,8 @@
+mkdir -p folder1/{folder2/folder4,folder3}
+    # Without -p
+    mkdir apps/{web,api}
+    # ❌ Error: apps/web doesn’t exist
+
+    # With -p
+    mkdir -p apps/{web,api}
+    # ✅ Creates apps/, apps/web/, apps/api/

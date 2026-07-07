@@ -1,0 +1,58 @@
+The `./` part is actually very important in Linux, and understanding it will make your file operations much clearer. 
+Let’s break it down carefully.
+
+---
+
+## 🔹 What `./` Means
+- `.` (dot) represents the **current directory** you are working in.  
+- `./filename` explicitly tells the shell:  
+  > “Look for this file in the current directory.”  
+
+So when you write:
+```bash
+mv testdir/newname.txt ./original_file1.txt
+```
+you’re saying:
+- Take `newname.txt` from inside `testdir`.  
+- Move it into the **current directory** (that’s what `./` means).  
+- While moving, rename it to `original_file1.txt`.  
+
+---
+
+## 🔹 Why Not Just Use the File Name?
+You *could* write:
+```bash
+mv testdir/newname.txt original_file1.txt
+```
+and it would usually work the same way, because by default the shell looks in the current directory if you don’t specify a path.  
+
+But here’s why `./` is important:
+1. **Clarity**: It makes it explicit that the destination is in the current directory, not somewhere else.  
+2. **Avoid Ambiguity**: If there’s another directory in your `$PATH` with a file of the same name, `./` ensures you’re referring to *your current folder*, not a system path.  
+3. **Security**: When running executables, typing `./program` ensures you’re running the program in your current directory, not some other program with the same name elsewhere on the system.  
+   - Example: If you just type `program`, Linux will search your `$PATH` (like `/usr/bin`, `/bin`, etc.).  
+   - If you type `./program`, it runs the one sitting in your current folder.  
+
+---
+
+## 🔹 Path Basics Refresher
+- `.` → current directory  
+- `..` → parent directory (one level up)  
+- `/` → root directory (top of the filesystem)  
+
+Examples:
+```bash
+mv file.txt ./newfile.txt   # rename inside current directory
+mv file.txt ../newfile.txt  # move file one level up
+mv file.txt /home/rehaan/   # move file to a specific directory
+```
+
+---
+
+## ✅ Key Takeaway
+Using `./` is about **precision and safety**:
+- It explicitly says “this directory, right here.”  
+- It avoids confusion with system paths or other directories.  
+- It’s especially critical when running executables, but also useful for clarity when moving/renaming files.  
+
+---

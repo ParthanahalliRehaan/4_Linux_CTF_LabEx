@@ -1,0 +1,19 @@
+echo simply repeats whatever you tell it to.
+
+whoami is useful when you're working on different machines or using different accounts.
+
+rehaa@Lucifer:~$ id
+uid=1000(rehaa) gid=1000(rehaa) groups=1000(rehaa),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),1001(docker)
+    Don't worry too much about the numbers right now. Here's the breakdown:
+
+        uid: Your User ID (a unique numerical identifier).
+        gid: Your primary Group ID.
+        groups: All the groups you are a member of.
+    root is the superuser – like the administrator of the system! (In this case root is rehaa)
+
+In step 2, you used whoami to display your username. In step 3, you used id to display user and group information.
+Sometimes id prints more detail than you need. A practical skill is learning how to ask for a specific piece of information
+rehaa@Lucifer:~$ id -u
+1000
+rehaa@Lucifer:~$ id -un
+rehaa
